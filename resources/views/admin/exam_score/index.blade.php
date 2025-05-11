@@ -35,8 +35,8 @@
                         <td>{{ $ex->training_schedule->training_name }}</td>
                         <td>
                             <div class="d-flex gap-2">
-                            <a href="" class="btn btn-warning"><i class="bi bi-pencil-square"></i></a>
-                        <form action="" method="POST">
+                            <a href="{{ route('examscore.edit', $ex->id) }}" class="btn btn-warning"><i class="bi bi-pencil-square"></i></a>
+                        <form action="{{ route('examscore.destroy', $ex->id) }}" method="POST">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger"><i class="bi bi-trash"></i></button>

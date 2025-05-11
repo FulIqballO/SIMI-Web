@@ -62,7 +62,7 @@ class ExamScoreController extends Controller
     
         ExamScore::create($validatedData);
     
-        return redirect()->route('examscore.index')->with('success', 'Nilai ujian berhasil disimpan.');
+        return redirect()->route('exam_score.index')->with('success', 'Nilai ujian berhasil disimpan.');
     }
 
     /**
@@ -99,7 +99,7 @@ class ExamScoreController extends Controller
 
 
         $examscore->update($validatedData);
-        return redirect()->route('examscore.index')->with('success', 'Exam score updated successfully.');
+        return redirect()->route('exam_score.index')->with('success', 'Exam score updated successfully.');
         
     }
 
