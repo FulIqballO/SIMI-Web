@@ -4,7 +4,7 @@
 
 
 <div class="col-12">
-    <div class="card shadow-lg bg-body-tertiary rouned">
+    <div class="card">
         
         <div class="card-header justify-content-between align-items-center">
 

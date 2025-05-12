@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\StatusRegistration;
 use Illuminate\Database\Eloquent\Model;
 
 class TrainingRegistration extends Model
@@ -17,6 +18,17 @@ class TrainingRegistration extends Model
         'registration_date',
 
     ];
+
+
+    public function getStatusAttribute($value)
+    {
+        return StatusRegistration::from($value);
+    }
+
+    public function setStatusAttribute($value)
+    {
+        $this->attributes['status'] = StatusRegistration::from($value)->value;
+    }
 
     public function user()
 { 

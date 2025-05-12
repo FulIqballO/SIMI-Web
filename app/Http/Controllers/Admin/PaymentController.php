@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Admin;
 use App\Models\User;
 use App\Models\Payment;
 use App\Models\Training;
+use App\Enums\PaymentStatus;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 use App\Http\Controllers\Controller;
 use App\Models\TrainingRegistration;
 use Illuminate\Support\Facades\Storage;
@@ -28,7 +30,8 @@ class PaymentController extends Controller
     {
         
         $training_registrations = TrainingRegistration::all();
-        return view('admin.payment.create', compact( 'training_registrations'));
+        $statuses = PaymentStatus::cases();
+        return view('admin.payment.create', compact( 'training_registrations', 'statuses'));
     }
 
     /**
@@ -43,7 +46,10 @@ class PaymentController extends Controller
             'transfer_date' => 'required|date',
             'transfer_time' => 'required',
             'proof_of_transfer' => 'required|image|mimes:jpg,jpeg,png|max:2048',
-            'payment_status' => 'required|in:Paid,Unpaid',
+             'payment_status' => [
+             'required',
+              Rule::in(array_column(PaymentStatus::cases(), 'value')),
+            ],
         ]);
         
 
@@ -91,7 +97,10 @@ class PaymentController extends Controller
             'transfer_date' => 'required|date',
             'transfer_time' => 'required',
             'proof_of_transfer' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
-            'payment_status' => 'required|in:Paid,Unpaid',
+             'payment_status' => [
+             'required',
+              Rule::in(array_column(PaymentStatus::cases(), 'value')),
+            ],
         ]);
 
         if ($request->hasFile('proof_of_transfer')) {
