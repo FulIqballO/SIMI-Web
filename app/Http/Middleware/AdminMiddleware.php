@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
 
 class AdminMiddleware
@@ -15,13 +16,17 @@ class AdminMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if(!auth()->guard('admin')->check()) {
-            return redirect('login_admin');
-            
+        $guards = empty($guards) ? [null] : $guards;
+
+    foreach ($guards as $guard) {
+        if (Auth::guard($guard)->check()) {
+            if ($guard === 'admin') {
+                return redirect()->route('admin');
+            }
+
+            return redirect()->route('login_admin'); 
         }
-
-        return $next($request);
-
-        
     }
+     return $next($request);
+}
 }

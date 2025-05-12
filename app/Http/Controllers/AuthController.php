@@ -8,7 +8,12 @@ use Illuminate\Support\Facades\Auth;
 class AuthController extends Controller
 {
     public function login_admin(){
-        return view('login_admin');
+
+          if (Auth::guard('admin')->check()) {
+           return redirect()->route('admin'); 
+        }
+
+              return view('login_admin');
 
     }
     
@@ -32,15 +37,13 @@ class AuthController extends Controller
         return redirect()->back()->withInput()->with('error', 'Email atau password salah');
     }
 
-    public function logout(){
+    public function logout(Request $request){
         
         Auth::guard('admin')->logout();
+       $request->session()->invalidate();
+       $request->session()->regenerateToken();
 
-        session()->invalidate();
-
-        session()->regenerateToken();
-        
-        return redirect()->route('admin.login_admin');
+    return redirect()->route('login_admin');
         
     }
 

@@ -30,17 +30,17 @@ Route::get('/', [AuthController::class, 'login_admin'])->name('login_admin');
 Route::post('/ceklogin', [AuthController::class, 'ceklogin'])->name('ceklogin');
 
 
-
-Route::get('/dashboard', action: function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
-
 Route::middleware('auth:admin')->group(function() {
     Route::get('/admin', [AdminDashboardController::class, 'index'])->name('admin');
 
     
 });
+
+// Route::get('/dashboard', action: function () {
+//     return view('dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
+
+
 
 Route::resource('info_training', TrainingController::class);
 
@@ -58,7 +58,7 @@ Route::resource('examscore', ExamScoreController::class);
 
 // Route::get('/index', [ScheduleController::class, 'index'])->name('index');
 
-    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+Route::post('/admin/logout', [AuthController::class, 'logout'])->name('admin.logout');
 
 
 
