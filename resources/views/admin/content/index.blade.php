@@ -4,7 +4,7 @@
 
 
 <div class="col-12">
-    <div class="card shadow-lg bg-body-tertiary rouned">
+    <div class="card">
         
         <div class="card-header justify-content-between align-items-center">
 
@@ -31,8 +31,8 @@
                 </div>
             </div>
         </div>
-        <div class="card-body col-lg-12">
-            <table class="table">
+        <div class="card-body">
+            <table class="table table-striped-columns">
                 <thead>
                   <tr>
                     <th scope="col">No</th>

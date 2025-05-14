@@ -40,6 +40,19 @@
 								<div class="m-sm-3">
 									<form action="{{ route('ceklogin') }}" method="POST">
 										@csrf
+
+
+									@if(session('error'))
+										<div class="row">
+											<div class="col-md-8 mx-auto">
+												<div class="alert alert-danger alert-dismissible fade show text-center" role="alert">
+													{{ session('error') }}
+													<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+												</div>
+											</div>
+										</div>
+									@endif
+
 										<div class="mb-3">
 											<label class="form-label">Email</label>
 											<input class="form-control form-control-lg" type="email" name="email" placeholder="Enter your email" />

@@ -14,10 +14,18 @@
             @method('PUT')
 
          <div class="row">
-            <div class="mb-3 col-md-6">
-                <label for="name" class="form-label">Nama User</label>
-                <input type="text" name="name" class="form-control"  placeholder="" aria-describedby="helpId" readonly/>
-            </div>
+                <div class="mb-3 col-md-6">
+                    <label for="training_registration_id" class="form-label">Nama Pengguna</label>
+                    <select name="training_registration_id" class="form-control" required>
+                        <option value="">-- Pilih User --</option>
+                        @foreach($training_registrations as $tr)
+                            @if($tr->user)
+                                <option value="{{ $tr->id }}">{{ $tr->user->name }}</option>
+                            @endif
+                        @endforeach
+                    </select>
+
+                </div>
             <div class="mb-3 col-md-6">
                 <label for="" class="form-label">Nama Kelas Pelatihan</label>
                 <input type="text" name="" id="" class="form-control"  placeholder="" aria-describedby="helpId" readonly/>

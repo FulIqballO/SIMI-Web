@@ -20,6 +20,9 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- Bootstrap 5 CSS CDN -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
 	<link href="{{ asset('admin_asset/css/app.css') }}" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
@@ -94,21 +97,6 @@
 					</li>
 
 
-					
-					<li class="sidebar-item">
-						<a class="sidebar-link" href="pages-blank.html">
-              <i class="align-middle" data-feather="book"></i> <span class="align-middle">Informasi Keberangkatan</span>
-            </a>
-
-					</li>
-					<li class="sidebar-item">
-						<a class="sidebar-link" href="pages-blank.html">
-              <i class="align-middle" data-feather="book"></i> <span class="align-middle">Informasi Kepulangan</span>
-            </a>
-
-					</li>
-					
-
 					<li class="sidebar-item">
 						<a class="sidebar-link" href="ui-forms.html">
               <i class="align-middle" data-feather="check-square"></i> <span class="align-middle">Payment Completed</span>
@@ -120,6 +108,23 @@
               <i class="align-middle" data-feather="grid"></i> <span class="align-middle">Payment Process</span>
             </a>
 					</li>
+
+					
+					<li class="sidebar-item">
+						<a class="sidebar-link {{ request()->routeIs('informasi_perjalanan.*') ? 'active bg-primary text-white' : '' }}" href="{{ route('informasi_perjalanan.index') }}">
+              <i class="align-middle" data-feather="book"></i> <span class="align-middle">Informasi Perjalanan</span>
+            </a>
+
+					</li>
+					<li class="sidebar-item">
+						<a class="sidebar-link" href="pages-blank.html">
+              <i class="align-middle" data-feather="book"></i> <span class="align-middle">Informasi Kepulangan</span>
+            </a>
+
+					</li>
+					
+
+					
 
 				
 

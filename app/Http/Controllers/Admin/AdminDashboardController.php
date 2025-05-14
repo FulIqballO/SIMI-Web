@@ -16,7 +16,7 @@ class AdminDashboardController extends Controller
             return redirect()->route('admin.login')->withErrors('Silakan login terlebih dahulu.');
         }
 
-        // Jika sudah login, ambil data admin dan tampilkan dashboard
+      
         $admin = Auth::guard('admin')->user();
 
         return view('admin.admin', compact('admin'));

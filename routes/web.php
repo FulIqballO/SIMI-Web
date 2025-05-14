@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\PaymentController;
 use App\Http\Controllers\Admin\ScheduleController;
 use App\Http\Controllers\Admin\TrainingController;
 use App\Http\Controllers\Admin\ExamScoreController;
+use App\Http\Controllers\Admin\TravelLogController;
 use App\Http\Controllers\Admin\TRegistrationController;
 use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Admin\TrainingScheduleController;
@@ -32,8 +33,7 @@ Route::post('/ceklogin', [AuthController::class, 'ceklogin'])->name('ceklogin');
 
 Route::middleware('auth:admin')->group(function() {
     Route::get('/admin', [AdminDashboardController::class, 'index'])->name('admin');
-
-    
+   
 });
 
 // Route::get('/dashboard', action: function () {
@@ -55,6 +55,8 @@ Route::resource('payment', PaymentController::class);
 Route::resource('training_registration', TRegistrationController::class);
 
 Route::resource('examscore', ExamScoreController::class);
+
+Route::resource('informasi_perjalanan', TravelLogController::class);
 
 // Route::get('/index', [ScheduleController::class, 'index'])->name('index');
 

@@ -29,7 +29,7 @@ class PaymentController extends Controller
     public function create()
     {
         
-        $training_registrations = TrainingRegistration::all();
+        $training_registrations = TrainingRegistration::with('user')->get();
         $statuses = PaymentStatus::cases();
         return view('admin.payment.create', compact( 'training_registrations', 'statuses'));
     }

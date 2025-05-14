@@ -32,7 +32,7 @@
             </div>
         </div>
         <div class="card-body col-lg-12">
-            <table class="table">
+            <table class="table table-striped">
                 <thead>
                   <tr>
                     <th scope="col">No</th>

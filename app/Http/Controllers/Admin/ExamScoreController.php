@@ -41,8 +41,8 @@ class ExamScoreController extends Controller
      */
     public function create()
     {
-        $user = User::class();
-        $training_schedule = TrainingSchedule::class();
+        $user = User::all();
+        $training_schedule = TrainingSchedule::all();
 
         return view('admin.exam_score.create', compact('user', 'training_schedule'));
     }
@@ -55,7 +55,7 @@ class ExamScoreController extends Controller
         $validatedData = $request->validate([
             'user_id' => 'required|exists:users,id',
             'score' => 'required|integer',
-            'remarks' => 'nullable|in:pass,fail,pending',
+            'remarks' => ['required', Rule::in(array_column(RemarkStatus::cases(), 'value'))],
             'input_date' => 'required|date',
             'training_schedule_id' => 'required|exists:training_schedules,id',
         ]);
@@ -92,7 +92,7 @@ class ExamScoreController extends Controller
         $validatedData = $request->validate([
         'user_id' => 'required|exists:users,id',
         'score' => 'required|integer',
-        'remarks' => ['nullable', Rule::in(array_column(RemarkStatus::cases(), 'value'))],
+        'remarks' => ['required', Rule::in(array_column(RemarkStatus::cases(), 'value'))],
         'input_date' => 'required|date',
         'training_schedule_id' => 'required|exists:training_schedules,id',
     ]);
