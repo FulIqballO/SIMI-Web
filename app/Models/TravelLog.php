@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Enumms\TravelStatus;
+use App\Enums\TravelStatus;
 use Illuminate\Database\Eloquent\Model;
 
 class TravelLog extends Model

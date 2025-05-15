@@ -14,6 +14,7 @@
             @method('PUT')
 
          <div class="row">
+            
                 <div class="mb-3 col-md-6">
                     <label for="training_registration_id" class="form-label">Nama Pengguna</label>
                     <select name="training_registration_id" class="form-control" required>

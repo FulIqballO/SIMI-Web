@@ -9,7 +9,7 @@
                 <h2>Edit Data Pekerjaan</h2>
             </div>
             <div class="card-body">
-                <form action="{{ route('job.update', $job->id) }}" method="POST">
+                <form id="formCreate" action="{{ route('job.update', $job->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
 

@@ -84,7 +84,7 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
         </div>
         <div class="modal-body">
-          Apakah Anda yakin ingin Melakukan Update data Jadwal Latihan ini?
+          Apakah Anda yakin ingin Melakukan Update data Jadwal Pelatihan ini?
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
