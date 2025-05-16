@@ -19,7 +19,7 @@ class PaymentController extends Controller
      */
     public function index(Request $request)
     {
-        $payment = Payment::with('training_registration')->get();
+        $payment = Payment::with('training_registration.user', 'training_registration.training')->get();
         return view('admin.payment.index', compact('payment'));
     }
 
@@ -29,7 +29,7 @@ class PaymentController extends Controller
     public function create()
     {
         
-        $training_registrations = TrainingRegistration::with('user')->get();
+        $training_registrations = TrainingRegistration::with('user', 'training')->get();
         $statuses = PaymentStatus::cases();
         return view('admin.payment.create', compact( 'training_registrations', 'statuses'));
     }
@@ -89,8 +89,7 @@ class PaymentController extends Controller
      */
     public function update(Request $request, Payment $payment)
     {
-       
-
+                    
         $validatedData = $request->validate([
             'training_registration_id' => 'required|exists:training_registrations,id',
             'invoice_code' => 'required|string|max:255|unique:payments,invoice_code,' . $payment->id,
@@ -111,6 +110,13 @@ class PaymentController extends Controller
         }
 
         $payment->update($validatedData);
+
+         if ($validatedData['payment_status'] === 'paid') {
+              $training_registration = $payment->training_registration;
+        if ($training_registration) {
+            $training_registration->update(['status' => 'active']);
+        }
+    }
 
         return redirect()->route('payment.index')->with('success', 'Data Berhasil Di Update');
 

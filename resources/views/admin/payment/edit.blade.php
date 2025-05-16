@@ -31,6 +31,11 @@
                 <input type="date" name="transfer_date" class="form-control"  placeholder="" value="{{ $payment->transfer_date}}" readonly>
             </div>
 
+            <div class="mb-3 col-md-6">
+                <label for="transfer_time" class="form-label">Jam Transfer</label>
+                <input type="time" name="transfer_time" class="form-control"  placeholder="" value="{{ $payment->transfer_time}}" readonly>
+            </div>
+
              <div class="mb-3 col-md-6">
                 <label for="proof_of_transfer" class="form-label">Bukti Transfer</label>
                     <input type="file" name="proof_of_transfer" class="form-control">

@@ -16,33 +16,46 @@
          <div class="row">
             
                 <div class="mb-3 col-md-6">
-                    <label for="training_registration_id" class="form-label">Nama Pengguna</label>
-                    <select name="training_registration_id" class="form-control" required>
-                        <option value="">-- Pilih User --</option>
+                    <label for="" class="form-label">Nama User</label>
+                    <select name="training_registration_id" class="form-select" required>
+                        <option disabled selected>-- Pilih User --</option>
                         @foreach($training_registrations as $tr)
-                            @if($tr->user)
-                                <option value="{{ $tr->id }}">{{ $tr->user->name }}</option>
-                            @endif
+                            <option value="{{ $tr->id }}">
+                                {{ $tr->user->name }}
+                            </option>
                         @endforeach
                     </select>
-
                 </div>
+
             <div class="mb-3 col-md-6">
-                <label for="" class="form-label">Nama Kelas Pelatihan</label>
-                <input type="text" name="" id="" class="form-control"  placeholder="" aria-describedby="helpId" readonly/>
+                <label for="" class="form-label">Nama Pelatihan</label>
+               <select name="training_registration_id" class="form-select">
+                <option disabled selected>-- Pilih Nama Pelatihan --</option>
+                    @foreach($training_registrations as $tr)
+                        <option value="{{ $tr->id }}">{{ $tr->training->name }}</option>
+                    @endforeach
+                </select>
             </div>
+
+
             <div class="mb-3 col-md-6">
                 <label for="invoice_code" class="form-label">Kode Invoice</label>
-                <input type="text" name="invoice_code" class="form-control"  placeholder="" aria-describedby="helpId" disabled/>
+                <input type="text" name="invoice_code" class="form-control"  placeholder=""/>
             </div>
             <div class="mb-3 col-md-6">
-                <label for="" class="form-label">Name</label>
-                <input type="text" name="" id="" class="form-control"  placeholder="" aria-describedby="helpId" readonly/>
+                <label for="" class="form-label">Tgl Transfer</label>
+                <input type="date" name="" id="" class="form-control"  placeholder="" aria-describedby="helpId"/>
             </div>
             <div class="mb-3 col-md-6">
-                <label for="" class="form-label">Name</label>
-                <input type="text" name="" id="" class="form-control"  placeholder="" aria-describedby="helpId"/>
+                <label for="" class="form-label">Jam Transfer</label>
+                <input type="time" name="transfer_time" class="form-control"  placeholder="" aria-describedby="helpId"/>
             </div>
+
+            <div class="mb-3 col-md-6">
+                    <label for="proof_of_transfer" class="form-label">Bukti Transfer</label>
+                    <input type="file" name="proof_of_transfer" class="form-control" accept="image/*">
+            </div>
+
              <div class="mb-3 col-md-6">
                                 <label for="payment_status" class="form-label">Status</label>
                                 <select class="form-select form-select-lg" name="payment_status" id="payment_status">

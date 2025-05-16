@@ -60,7 +60,7 @@ class TRegistrationController extends Controller
     {
         $validatedData = $request->validate([
             'user_id' => 'required|exists:users,id',
-            'training_schedule_id' => 'required|exists:training_schedules,id',
+            'training_id' => 'required|exists:trainings,id',
             'status' => [
              'required',
               Rule::in(array_column(StatusRegistration::cases(), 'value')),
@@ -100,9 +100,10 @@ class TRegistrationController extends Controller
      */
     public function update(Request $request, TrainingRegistration $training_registration)
     {
+    
         $validatedData = $request->validate([
             'user_id' => 'required|exists:users,id',
-            'training_schedule_id' => 'required|exists:training_schedules,id',
+            'training_id' => 'required|exists:trainings,id',
             'status' => [
              'required',
               Rule::in(array_column(StatusRegistration::cases(), 'value')),

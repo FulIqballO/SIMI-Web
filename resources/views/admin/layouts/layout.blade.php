@@ -77,6 +77,11 @@
 					<li class="sidebar-header fw-bold">
 						Data
 					</li>
+					<li class="sidebar-item">
+						<a class="sidebar-link {{ request()->routeIs('training_registration.*') ? 'active bg-primary text-white' : '' }}" href="{{ route('training_registration.index') }}">
+              <i class="align-middle" data-feather="check-square"></i> <span class="align-middle">Registrasi Pelatihan</span>
+            </a>
+					</li>
 
 					<li class="sidebar-item">
 						<a class="sidebar-link {{ request()->routeIs('payment.*') ? 'active bg-primary text-white' : '' }}" href="{{ route('payment.index') }}">
@@ -84,11 +89,7 @@
             </a>
 					</li>
 
-					<li class="sidebar-item">
-						<a class="sidebar-link {{ request()->routeIs('training_registration.*') ? 'active bg-primary text-white' : '' }}" href="{{ route('training_registration.index') }}">
-              <i class="align-middle" data-feather="check-square"></i> <span class="align-middle">Registrasi Pelatihan</span>
-            </a>
-					</li>
+					
 
 					<li class="sidebar-item">
 						<a class="sidebar-link {{ request()->routeIs('examscore.*') ? 'active bg-primary text-white' : '' }}" href="{{ route('examscore.index') }}">

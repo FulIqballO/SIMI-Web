@@ -40,4 +40,9 @@ public function training(){
     return $this->belongsTo(Training::class, 'training_id');
 }
 
+ public function payment()
+    {
+        return $this->hasMany(Payment::class);
+    }
+
 }
