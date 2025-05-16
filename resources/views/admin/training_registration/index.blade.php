@@ -33,7 +33,7 @@
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>Nama USer</th>
+                        <th>Nama User</th>
                         <th>Materi Training </th>
                         <th>Status</th>
                         <th>Tgl Registrasi</th>
