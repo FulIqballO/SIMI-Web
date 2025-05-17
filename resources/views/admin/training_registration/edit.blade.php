@@ -20,7 +20,7 @@
                     </div>
 
                         <div class="mb-3 col-md-6">
-                            <label for="training_id" class="form-label">Nama Nama Pelatihn</label>
+                            <label for="training_id" class="form-label">Nama Pelatihn</label>
                             <select name="training_id" class="form-control" required>
                                 @foreach($training as $t)
                                     <option value="{{ $t->id }}"  {{ $training_registration->training_id == $t->id ? 'selected' : '' }}>>{{ $t->training_name }}</option>
@@ -43,7 +43,7 @@
                     
                              <div class="mb-3">
                                 <label for="registration_date" class="form-label">Tgl Registrasi</label>
-                                 <input type="date" name="registration_date" id="" class="form-control" placeholder="" value="{{ Carbon\Carbon::parse($training_registration->date)->format('dd-mm-yyy') }}" readonly/>
+                                 <input type="date" name="registration_date" id="" class="form-control" placeholder="" value="{{ Carbon\Carbon::parse($training_registration->date)->format('d/m/Y') }}" readonly/>
                              </div>
                              
                              <div class="mb-3 col-md-6">

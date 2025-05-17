@@ -340,9 +340,7 @@
 
 			<main class="content">
 				<div class="container-fluid p-0">
-
 					@yield('admin_layout')
-
 				</div>
 			</main>
 

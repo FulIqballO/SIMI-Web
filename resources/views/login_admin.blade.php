@@ -41,7 +41,6 @@
 									<form action="{{ route('ceklogin') }}" method="POST">
 										@csrf
 
-
 									@if(session('error'))
 										<div class="row">
 											<div class="col-md-8 mx-auto">

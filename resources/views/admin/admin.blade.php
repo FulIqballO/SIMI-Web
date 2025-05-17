@@ -500,6 +500,7 @@
 			});
 		});
 	</script>
+
 	<script>
 		document.addEventListener("DOMContentLoaded", function() {
 			var date = new Date(Date.now() - 5 * 24 * 60 * 60 * 1000);
@@ -513,7 +514,7 @@
 		});
 	</script>
 	
-
+	
 
 @endsection
 

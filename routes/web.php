@@ -58,9 +58,12 @@ Route::resource('examscore', ExamScoreController::class);
 
 Route::resource('informasi_perjalanan', TravelLogController::class);
 
+
+
 // Route::get('/index', [ScheduleController::class, 'index'])->name('index');
 
 Route::post('/admin/logout', [AuthController::class, 'logout'])->name('admin.logout');
+
 
 
 

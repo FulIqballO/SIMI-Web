@@ -18,7 +18,7 @@
                         
                         <th scope="col">Id</th>
                         {{-- <th scope="col">Nama Pengguna</th> --}}
-                        <th scope="col">Status Registrasi</th>
+                        <th scope="col">Id Registrasi</th>
                         <th scope="col">Kode Invoice</th>
                         <th scope="col">Tgl Transfer</th>
                         <th scope="col">Jam Transfer</th>
@@ -33,7 +33,7 @@
                     <tr>
                         <td>{{ $p->id }}</td>
                         {{-- <td>{{ $p->training_registrations->user->name }}</td> --}}
-                        <td>{{ $p->training_registrations->status }}</td>
+                        <td>{{ $p->training_registrations->status }}</td> <td>
                         <td>{{ $p->invoice_code }}</td>
                         <td>{{ $p->transfer_date }}</td>
                         <td>{{ $p->transfer_time }}</td>

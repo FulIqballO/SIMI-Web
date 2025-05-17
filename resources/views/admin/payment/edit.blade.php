@@ -11,14 +11,14 @@
             @method('PUT')
 
             <div class="row">
-            <div class="mb-3 col-md-6">
+            {{-- <div class="mb-3 col-md-6">
                 <label for="training_registration_id" class="form-label">Nama User</label>
                 <input type="text" name="training_registration_id" id="" class="form-control"  placeholder="" value="{{ $payment->training_registration->user->name }}" readonly>
-            </div>
+            </div> --}}
 
             <div class="mb-3 col-md-6">
                 <label class="form-label">Nama Pelatihan</label>
-                <input type="text" name="training_registration_id" class="form-control"  placeholder="" value="{{ $payment->training_registration->training->training_name }}" readonly>
+                <input type="text" name="training_registration_id" class="form-control"  placeholder="" value="{{ $payment->training_registration->status }}" readonly>
             </div>
 
             <div class="mb-3 col-md-6">

@@ -23,8 +23,8 @@ class ExamScoreController extends Controller
         $examscoreQuery = ExamScore::with('user', 'training_schedule');
     
         if ($cari) {
-            $examscoreQuery->whereHas('name', function ($query) use ($cari) {
-                $query->where('name', 'like', '%' . $cari . '%');
+            $examscoreQuery->whereHas('username', function ($query) use ($cari) {
+                $query->where('username', 'like', '%' . $cari . '%');
             });
                 
         }

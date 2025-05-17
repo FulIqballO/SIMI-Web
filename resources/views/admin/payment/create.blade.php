@@ -15,27 +15,16 @@
 
          <div class="row">
             
-                <div class="mb-3 col-md-6">
-                    <label for="" class="form-label">Nama User</label>
-                    <select name="training_registration_id" class="form-select" required>
-                        <option disabled selected>-- Pilih User --</option>
-                        @foreach($training_registrations as $tr)
-                            <option value="{{ $tr->id }}">
-                                {{ $tr->user->name }}
-                            </option>
-                        @endforeach
-                    </select>
-                </div>
-
-            <div class="mb-3 col-md-6">
-                <label for="" class="form-label">Nama Pelatihan</label>
+          
+            {{-- <div class="mb-3 col-md-6">
+                <label for="" class="form-label">Status Registrasi</label>
                <select name="training_registration_id" class="form-select">
                 <option disabled selected>-- Pilih Nama Pelatihan --</option>
                     @foreach($training_registrations as $tr)
-                        <option value="{{ $tr->id }}">{{ $tr->training->name }}</option>
+                        <option value="{{ $tr->id }}">{{ $tr->status }}</option>
                     @endforeach
                 </select>
-            </div>
+            </div> --}}
 
 
             <div class="mb-3 col-md-6">
