@@ -2,13 +2,13 @@
 
 @section('admin_layout')
 
-<div class="col-lg-12">
+  <div class="col-lg-12">
     <div class="card rounded">
         <div class="card-header">
             <h2 class="fw-bold mb-2 mt-2">Konfirmasi Data Pembayaran</h2>
             
             <a href="{{ route('payment.create') }}" class="btn btn-success mt-2"> 
-                <i class="fas fa-plus"></i> Tambah
+                <i class="fas fa-plus"></i> Create
              </a>
         </div>
         <div class="card-body">

@@ -20,7 +20,7 @@ class ExamScoreController extends Controller
     {
         $cari = $request->query('cari');
         
-        $examscoreQuery = ExamScore::with('user', 'training_schedule');
+        $examscoreQuery = ExamScore::with('training_registration','user', 'training_schedule');
     
         if ($cari) {
             $examscoreQuery->whereHas('username', function ($query) use ($cari) {
@@ -53,6 +53,7 @@ class ExamScoreController extends Controller
     public function store(Request $request, ExamScore $examscore)
     {
         $validatedData = $request->validate([
+            'training_registration_id' => 'required|exists:training_registrations,id',
             'user_id' => 'required|exists:users,id',
             'score' => 'required|integer',
             'remarks' => ['required', Rule::in(array_column(RemarkStatus::cases(), 'value'))],

@@ -10,7 +10,7 @@
 
             <h2 class="fw-bold mb-3">Content Berita</h2>
             <a href="{{ route('content.create') }}" class="btn btn-success mt-2">
-                <i class="fas fa-plus"></i> Tambah 
+               <i class="fas fa-plus"></i> Tambah 
             </a>
 
             <div class="row">

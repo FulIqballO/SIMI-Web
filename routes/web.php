@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\ScheduleController;
 use App\Http\Controllers\Admin\TrainingController;
 use App\Http\Controllers\Admin\ExamScoreController;
 use App\Http\Controllers\Admin\TravelLogController;
+use App\Http\Controllers\Admin\RDepartureController;
 use App\Http\Controllers\Admin\TRegistrationController;
 use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Admin\TrainingScheduleController;
@@ -41,7 +42,6 @@ Route::middleware('auth:admin')->group(function() {
 // })->middleware(['auth', 'verified'])->name('dashboard');
 
 
-
 Route::resource('info_training', TrainingController::class);
 
 Route::resource('job', JobController::class);
@@ -57,6 +57,10 @@ Route::resource('training_registration', TRegistrationController::class);
 Route::resource('examscore', ExamScoreController::class);
 
 Route::resource('informasi_perjalanan', TravelLogController::class);
+
+Route::resource('report_departure', RDepartureController::class);
+
+
 
 
 

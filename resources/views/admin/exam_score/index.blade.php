@@ -28,7 +28,7 @@
                  @foreach($examscore as $ex)
                     <tr>
                         <td>{{ $ex->id }}</td>
-                        <td>{{ $ex->user->name }}</td>
+                        <td>{{ $ex->user->username }}</td>
                         <td>{{ $ex->score }}</td>
                         <td>{{ $ex->remarks }}</td>
                         <td>{{ $ex->input_date }}</td>

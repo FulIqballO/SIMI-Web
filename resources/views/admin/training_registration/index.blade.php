@@ -45,7 +45,7 @@
                         @foreach($training_registration as $tr)
                     <tr>
                         <td scope="col">{{ $tr->id }}</td>
-                        <td scope="col">{{ $tr->user->name }}</td>
+                        <td scope="col">{{ $tr->user->username }}</td>
                         <td scope="col">{{ $tr->training->training_name }}</td>
                         <td scope="col">{{ $tr->status }}</td>
                         <td scope="col">{{ $tr->registration_date }}</td>

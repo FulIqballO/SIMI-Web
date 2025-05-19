@@ -14,6 +14,7 @@ class ExamScore extends Model
     protected $table = 'exam_scores';
 
     protected $fillable = [
+      'training_registration_id',
       'user_id',
       'score',
       'remarks',
@@ -41,5 +42,9 @@ class ExamScore extends Model
 
     public function training_schedule(){
         return $this->belongsTo(TrainingSchedule::class, 'training_schedule_id');
+    }
+
+    public function training_registration(){
+      return $this->belongsTo(TrainingRegistration::class, 'training_registration_id');
     }
 }

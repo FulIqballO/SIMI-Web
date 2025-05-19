@@ -77,11 +77,7 @@
 					<li class="sidebar-header fw-bold">
 						Data
 					</li>
-					<li class="sidebar-item">
-						<a class="sidebar-link {{ request()->routeIs('training_registration.*') ? 'active bg-primary text-white' : '' }}" href="{{ route('training_registration.index') }}">
-              <i class="align-middle" data-feather="check-square"></i> <span class="align-middle">Registrasi Pelatihan</span>
-            </a>
-					</li>
+
 
 					<li class="sidebar-item">
 						<a class="sidebar-link {{ request()->routeIs('payment.*') ? 'active bg-primary text-white' : '' }}" href="{{ route('payment.index') }}">
@@ -89,6 +85,12 @@
             </a>
 					</li>
 
+
+					<li class="sidebar-item">
+						<a class="sidebar-link {{ request()->routeIs('training_registration.*') ? 'active bg-primary text-white' : '' }}" href="{{ route('training_registration.index') }}">
+              <i class="align-middle" data-feather="check-square"></i> <span class="align-middle">Registrasi Pelatihan</span>
+            </a>
+					</li>
 					
 
 					<li class="sidebar-item">
@@ -100,13 +102,13 @@
 
 					<li class="sidebar-item">
 						<a class="sidebar-link" href="ui-forms.html">
-              <i class="align-middle" data-feather="check-square"></i> <span class="align-middle">Payment Completed</span>
+              <i class="align-middle" data-feather="check-square"></i> <span class="align-middle">Pembayaran Berhasil</span>
             </a>
 					</li>
 
 					<li class="sidebar-item">
 						<a class="sidebar-link" href="ui-cards.html">
-              <i class="align-middle" data-feather="grid"></i> <span class="align-middle">Payment Process</span>
+              <i class="align-middle" data-feather="grid"></i> <span class="align-middle">Pembayaran Gagal</span>
             </a>
 					</li>
 
@@ -117,6 +119,12 @@
             </a>
 
 					</li>
+					<li class="sidebar-item">
+						<a class="sidebar-link" href="pages-blank.html">
+              <i class="align-middle" data-feather="book"></i> <span class="align-middle">Informasi Keberangkatan</span>
+            </a>
+
+			</li>
 					<li class="sidebar-item">
 						<a class="sidebar-link" href="pages-blank.html">
               <i class="align-middle" data-feather="book"></i> <span class="align-middle">Informasi Kepulangan</span>
@@ -135,14 +143,14 @@
 					</li>
 
 					<li class="sidebar-item">
-						<a class="sidebar-link" href="">
-              <i class="align-middle" data-feather="coffee"></i> <span class="align-middle">Departure Report</span>
+						<a class="sidebar-link {{ request()->routeIs('report_departure.*') ? 'active bg-primary text-white' : '' }}" href="{{ route('report_departure.index') }}">
+              <i class="align-middle" data-feather="coffee"></i> <span class="align-middle">Laporan Keberangkatan</span>
             </a>
 					</li>
 
 					<li class="sidebar-item">
 						<a class="sidebar-link" href="icons-feather.html">
-              <i class="align-middle" data-feather="coffee"></i> <span class="align-middle">Departure Report</span>
+              <i class="align-middle" data-feather="coffee"></i> <span class="align-middle">Laporan Kepulangan</span>
             </a>
 					</li>
 				</ul>
