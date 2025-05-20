@@ -71,7 +71,7 @@ class TRegistrationController extends Controller
 
         TrainingRegistration::create($validatedData);
 
-        return redirect()->route('admin.training_registration.index');
+        return redirect()->route('admin.training_registration.index')->with('seccsess', 'Data Berhasil Di Buat');
     }
 
     /**
@@ -114,7 +114,7 @@ class TRegistrationController extends Controller
 
         $training_registration->update($validatedData);
 
-        return redirect()->route('admin.training_registration.index');
+        return redirect()->route('admin.training_registration.index')->with('success', 'Registrasi Pelatihan Berhasil Diperbarui');
     }
 
     /**

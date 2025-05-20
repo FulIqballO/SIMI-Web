@@ -10,6 +10,24 @@
             <a href="{{ route('payment.create') }}" class="btn btn-success mt-2"> 
                 <i class="fas fa-plus"></i> Create
              </a>
+
+             <div class="row">
+                <div class="col-md-8">
+                    
+                </div>
+                <div class="col-md-4">
+                    <form class="d-flex" role="search" method="GET" action="{{ route('payment.index') }}">
+                        <input class="form-control me-2" type="search" name="cari" placeholder="Search" aria-label="Search"  value="{{ request()->query('cari') }}">
+
+                    <div class="d-flex gap-2">
+                        <button class="btn btn-sm rounded btn-outline-primary" type="submit">Search</button>
+                        @if(request()->has('cari') && request()->get('cari') != '')
+                        <a href="{{ route('payment.index') }}" class="btn btn-sm btn-outline-danger">Reset</a>
+                    </div>
+                    @endif
+                      </form>
+                </div>
+            </div>
         </div>
         <div class="card-body">
             <table class="table table-striped">
@@ -18,7 +36,7 @@
                         
                         <th scope="col">Id</th>
                         {{-- <th scope="col">Nama Pengguna</th> --}}
-                        <th scope="col">Id Registrasi</th>
+                        <th scope="col">Status Registrasi</th>
                         <th scope="col">Kode Invoice</th>
                         <th scope="col">Tgl Transfer</th>
                         <th scope="col">Jam Transfer</th>
@@ -33,7 +51,7 @@
                     <tr>
                         <td>{{ $p->id }}</td>
                         {{-- <td>{{ $p->training_registrations->user->name }}</td> --}}
-                        <td>{{ $p->training_registrations->status }}</td> <td>
+                        <td>{{ $p->training_registrations->status }}</td>
                         <td>{{ $p->invoice_code }}</td>
                         <td>{{ $p->transfer_date }}</td>
                         <td>{{ $p->transfer_time }}</td>

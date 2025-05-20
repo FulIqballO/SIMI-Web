@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use App\Http\Controllers\Controller;
 use App\Models\TrainingRegistration;
+use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Storage;
 
 class PaymentController extends Controller
@@ -19,7 +20,17 @@ class PaymentController extends Controller
      */
     public function index(Request $request)
     {
-        $payment = Payment::with('training_registration.user', 'training_registration.training')->get();
+        $cari = $request->query('cari');
+
+        $paymentQuery = Payment::with('training_registration');
+
+    if ($cari) {
+        $paymentQuery->where('invoice_code', 'like', '%' . $cari . '%'); 
+    }
+
+        Paginator::useBootstrap();  
+        $payment = $paymentQuery->orderBy('created_at', 'DESC')->paginate(4);
+
         return view('admin.payment.index', compact('payment'));
     }
 

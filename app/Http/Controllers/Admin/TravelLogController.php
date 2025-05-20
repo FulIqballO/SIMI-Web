@@ -17,7 +17,11 @@ class TravelLogController extends Controller
      */
     public function index(Request $request)
     {
-        $travelLog = TravelLog::with('exam_score', 'user')->get();
+         $travelLog = TravelLog::whereHas('exam_score', function($query) {
+                $query->where('remarks', 'Passed'); 
+                })->with(['user', 'exam_score'])->get();
+
+       
         return view('admin.informasi_perjalanan.index', compact('travelLog'));
     }
 

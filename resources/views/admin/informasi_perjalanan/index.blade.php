@@ -14,7 +14,7 @@
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th scope="col">id</th>
+                        <th scope="col">No</th>
                         <th scope="col">Status Kelulusan</th>
                         <th scope="col">nama user</th>
                         <th scope="col">tipe perjalanan</th>

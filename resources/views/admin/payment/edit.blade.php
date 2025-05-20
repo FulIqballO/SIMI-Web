@@ -6,7 +6,7 @@
 <div class="containter-fluid">
     <div class="card-header"></div>
     <div class="card-body">
-        <form action="{{ route('payment.update', $payment->id) }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('payment.update', $payment->invoice_code) }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
 
@@ -45,10 +45,10 @@
              </div>
 
               <div class="mb-3 col-md-6">
-                <label for="payment_status" class="form-label">Status</label>
+                <label for="payment_status" class="form-label">Status Pembayaran</label>
                     <select class="form-select form-select-lg" name="payment_status" id="payment_status">
                         @foreach($statuses as $status)
-                            <option value="{{ $status->value }}">
+                            <option value="{{ $status->value }}" {{ old('payment_status', $payment->payment_status ?? '') == $status->value ? 'selected' : '' }}>
                                 {{ ucfirst($status->value) }}
                             </option>
                              @endforeach

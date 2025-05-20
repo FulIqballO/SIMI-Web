@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use App\Models\TrainingSchedule;
 use App\Http\Controllers\Controller;
+use App\Models\TrainingRegistration;
 use Illuminate\Pagination\Paginator;
 
 class ExamScoreController extends Controller
@@ -20,7 +21,7 @@ class ExamScoreController extends Controller
     {
         $cari = $request->query('cari');
         
-        $examscoreQuery = ExamScore::with('training_registration','user', 'training_schedule');
+        $examscoreQuery = ExamScore::with('training_schedule', 'user','training_registration');
     
         if ($cari) {
             $examscoreQuery->whereHas('username', function ($query) use ($cari) {
@@ -43,8 +44,10 @@ class ExamScoreController extends Controller
     {
         $user = User::all();
         $training_schedule = TrainingSchedule::all();
+        $training_registration = TrainingRegistration::all();
+         $statuses = RemarkStatus::cases();
 
-        return view('admin.exam_score.create', compact('user', 'training_schedule'));
+        return view('admin.exam_score.create', compact('user', 'training_schedule', 'training_registration', 'statuses'));
     }
 
     /**
@@ -79,10 +82,14 @@ class ExamScoreController extends Controller
      */
     public function edit(ExamScore $examscore)
     {
-        $user = User::all();
+        $user =  User::whereHas('trainingRegistrations', function($query) {
+            $query->where('status', 'active')->where('payment_status', 'Paid');
+            })->get();
         $training_schedule = TrainingSchedule::all();
+        $training_registration = TrainingRegistration::all();
+        $statuses = RemarkStatus::cases();
 
-        return view('admin.exam_score.edit', compact('examscore', 'user', 'training_schedule'));
+        return view('admin.exam_score.edit', compact('examscore', 'user', 'training_schedule', 'training_registration', 'statuses'));
     }
 
     /**
@@ -91,6 +98,7 @@ class ExamScoreController extends Controller
     public function update(Request $request, ExamScore $examscore)
     {
         $validatedData = $request->validate([
+        'training_registration' => 'required|exists:training_registrations,id',
         'user_id' => 'required|exists:users,id',
         'score' => 'required|integer',
         'remarks' => ['required', Rule::in(array_column(RemarkStatus::cases(), 'value'))],
