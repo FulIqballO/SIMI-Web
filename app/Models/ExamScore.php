@@ -18,6 +18,7 @@ class ExamScore extends Model
       'user_id',
       'score',
       'remarks',
+      'riview_status',
       'input_date',
       'training_schedule_id',
 

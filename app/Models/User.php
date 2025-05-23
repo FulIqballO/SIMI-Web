@@ -24,6 +24,8 @@ class User extends Authenticatable
         'username',
         'email',
         'password',
+        'no_telp',
+        'jk',
     ];
 
     /**
@@ -48,4 +50,24 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function personalData()
+{
+    return $this->hasOne(PersonalData::class);
+}
+public function userDetails()
+{
+    return $this->hasOne(UserDetail::class);
+}
+public function userDocuments()
+{
+    return $this->hasOne(UserDocument::class);
+}
+
+public function examScore()
+{
+    return $this->hasOne(ExamScore::class);
+}
+
+
 }

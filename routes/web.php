@@ -13,6 +13,7 @@ use App\Http\Controllers\Admin\TrainingController;
 use App\Http\Controllers\Admin\ExamScoreController;
 use App\Http\Controllers\Admin\TravelLogController;
 use App\Http\Controllers\Admin\RDepartureController;
+use App\Http\Controllers\Admin\RiviewDataController;
 use App\Http\Controllers\Admin\TRegistrationController;
 use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Admin\TrainingScheduleController;
@@ -55,6 +56,8 @@ Route::resource('payment', PaymentController::class);
 Route::resource('training_registration', TRegistrationController::class);
 
 Route::resource('examscore', ExamScoreController::class);
+
+Route::resource('riview_data', RiviewDataController::class);
 
 Route::resource('informasi_perjalanan', TravelLogController::class);
 

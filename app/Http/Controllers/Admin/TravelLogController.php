@@ -9,21 +9,40 @@ use App\Enums\TravelStatus;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use App\Http\Controllers\Controller;
+use Illuminate\Pagination\Paginator;
 
 class TravelLogController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index(Request $request)
-    {
-         $travelLog = TravelLog::whereHas('exam_score', function($query) {
-                $query->where('remarks', 'Passed'); 
-                })->with(['user', 'exam_score'])->get();
+        public function index(Request $request)
+        {
 
-       
-        return view('admin.informasi_perjalanan.index', compact('travelLog'));
+            {
+            $cari = $request->query('cari');
+
+            $travelLogQuery = TravelLog::whereHas('exam_score', function ($query) {
+                 $query->where('remarks', 'Passed')
+              ->where('review_status', 'approved');
+            })
+            ->with(['user', 'exam_score']);
+
+
+         if ($cari) {
+        $travelLogQuery->whereHas('user', function ($query) use ($cari) {
+            $query->where('username', 'like', '%' . $cari . '%');
+        });
     }
+
+            Paginator::useBootstrap();  
+            $travelLog = $travelLogQuery->orderBy('created_at', 'DESC')->paginate(5);
+
+    }
+   
+            return view('admin.informasi_perjalanan.index', compact('travelLog'));
+
+        }
 
     /**
      * Show the form for creating a new resource.

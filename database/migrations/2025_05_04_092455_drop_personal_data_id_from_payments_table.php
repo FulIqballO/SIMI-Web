@@ -24,7 +24,6 @@ return new class extends Migration
     {
         Schema::table('payments', function (Blueprint $table) {
             $table->unsignedBigInteger('personal_data_id')->nullable();
-
          
             $table->foreign('personal_data_id')->references('id')->on('personal_data');
         });

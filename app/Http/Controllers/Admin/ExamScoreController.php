@@ -106,9 +106,16 @@ class ExamScoreController extends Controller
         'training_schedule_id' => 'required|exists:training_schedules,id',
     ]);
 
+  
+    $examscore->update($validatedData);
 
-        $examscore->update($validatedData);
-        return redirect()->route('exam_score.index')->with('success', 'Exam score updated successfully.');
+   
+    if ($validatedData['remarks'] === 'passed') {
+        $examscore->review_status = 'pending';
+        $examscore->save(); 
+    }
+
+    return redirect()->route('exam_score.index')->with('success', 'Exam score updated successfully.');
         
     }
 

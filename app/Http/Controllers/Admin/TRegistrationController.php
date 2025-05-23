@@ -27,7 +27,7 @@ class TRegistrationController extends Controller
         $trainingregistrationQuery->where(function ($query) use ($cari) {
             $query->where('id', 'like', '%' . $cari . '%')
                 ->orWhereHas('user', function ($q) use ($cari) {
-                    $q->where('name', 'like', '%' . $cari . '%'); 
+                    $q->where('username', 'like', '%' . $cari . '%'); 
                 })
                 ->orWhereHas('training', function ($q) use ($cari) {
                     $q->where('training_name', 'like', '%' . $cari . '%'); 

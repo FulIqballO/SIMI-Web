@@ -100,7 +100,7 @@
 					</li>
 
 
-					<li class="sidebar-item">
+					{{-- <li class="sidebar-item">
 						<a class="sidebar-link" href="ui-forms.html">
               <i class="align-middle" data-feather="check-square"></i> <span class="align-middle">Pembayaran Berhasil</span>
             </a>
@@ -109,14 +109,22 @@
 					<li class="sidebar-item">
 						<a class="sidebar-link" href="ui-cards.html">
               <i class="align-middle" data-feather="grid"></i> <span class="align-middle">Pembayaran Gagal</span>
-            </a>
+            </a> --}}
 					</li>
 
 					
+			<li class="sidebar-item">
+						<a class="sidebar-link {{ request()->routeIs('riview_data.*') ? 'active bg-primary text-white' : '' }}" href="{{ route('riview_data.index') }}">
+              				<i class="align-middle" data-feather="check-square"></i> <span class="align-middle">Riview Data CPMI</span>
+            			</a>
+			</li>
+
 					<li class="sidebar-item">
 						<a class="sidebar-link {{ request()->routeIs('informasi_perjalanan.*') ? 'active bg-primary text-white' : '' }}" href="{{ route('informasi_perjalanan.index') }}">
               <i class="align-middle" data-feather="book"></i> <span class="align-middle">Informasi Perjalanan</span>
             </a>
+
+			
 
 					</li>
 					<li class="sidebar-item">
