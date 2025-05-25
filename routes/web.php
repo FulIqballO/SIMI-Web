@@ -6,13 +6,14 @@ use App\Http\Controllers\NavController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\JobController;
+use App\Http\Controllers\Admin\ReportController;
 use App\Http\Controllers\Admin\ContentController;
 use App\Http\Controllers\Admin\PaymentController;
 use App\Http\Controllers\Admin\ScheduleController;
 use App\Http\Controllers\Admin\TrainingController;
+use App\Http\Controllers\Admin\DepartureController;
 use App\Http\Controllers\Admin\ExamScoreController;
 use App\Http\Controllers\Admin\TravelLogController;
-use App\Http\Controllers\Admin\RDepartureController;
 use App\Http\Controllers\Admin\RiviewDataController;
 use App\Http\Controllers\Admin\TRegistrationController;
 use App\Http\Controllers\Admin\AdminDashboardController;
@@ -58,10 +59,17 @@ Route::resource('training_registration', TRegistrationController::class);
 Route::resource('examscore', ExamScoreController::class);
 
 Route::resource('riview_data', RiviewDataController::class);
+Route::post('/review-data/{examScore}/konfirmasi', [RiviewDataController::class, 'konfirmasi'])->name('review_data.konfirmasi');
 
 Route::resource('informasi_perjalanan', TravelLogController::class);
 
-Route::resource('report_departure', RDepartureController::class);
+Route::resource('report', ReportController::class);
+Route::get('report/cetak/{id}', [ReportController::class, 'cetak'])->name('report.cetak');
+
+// Route::resource('informasi_keberangkatan', DepartureController::class);
+
+
+
 
 
 

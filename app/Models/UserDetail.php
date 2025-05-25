@@ -17,8 +17,6 @@ class UserDetail extends Model
         'agency_name',
         'position',
         'visa_teto',
-        'marriage_certificate',
-        'passport',
         'sponsor',
         
 

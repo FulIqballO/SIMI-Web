@@ -17,7 +17,12 @@ class UserDocument extends Model
         'vaccine_certificate',
         'permit_letter',
         'police_clearance',
-        'beneficiary',
+        'marriage_certificate',
+        'passport',
+        'identity_card',
+        'diploma',
+        'family_register'
+       
         
     ];
 

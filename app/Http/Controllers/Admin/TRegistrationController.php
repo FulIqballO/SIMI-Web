@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\User;
+use App\Models\Payment;
 use App\Models\Training;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
@@ -21,7 +22,10 @@ class TRegistrationController extends Controller
     {
         $cari = $request->query('cari');
 
-        $trainingregistrationQuery = TrainingRegistration::with('user', 'training');
+        $trainingregistrationQuery = TrainingRegistration::with(['user', 'training'])
+        ->whereHas('payment', function ($query) {
+            $query->where('status', 'paid'); 
+        });
 
     if ($cari) {
         $trainingregistrationQuery->where(function ($query) use ($cari) {
@@ -48,9 +52,11 @@ class TRegistrationController extends Controller
     {
         $user = User::all();
         $training = Training::all();
+        $payment = Payment::all();
         $statuses = StatusRegistration::cases();
 
-        return view('admin.training_registration.create', compact('user', 'training', 'statuses'));
+
+        return view('admin.training_registration.create', compact('user', 'training', 'payment','statuses'));
     }
 
     /**

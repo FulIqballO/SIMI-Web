@@ -40,7 +40,7 @@
                 <label for="proof_of_transfer" class="form-label">Bukti Transfer</label>
                     <input type="file" name="proof_of_transfer" class="form-control">
                     @if ($payment->proof_of_transfer)
-                        <p class="mt-2">Foto lama: <img src="{{ asset('storage/' . $payment->proof_of_transfer) }}" width="100"></p>
+                        <p class="mt-2">Foto lama: <img src="{{ asset('payments/' . $payment->proof_of_transfer) }}" width="100"></p>
                     @endif
              </div>
 

@@ -11,19 +11,24 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('users', function (Blueprint $table) {
-                $table->renameColumn('name', 'username');
-               
+       
+      Schema::table('user_details', function (Blueprint $table) {
+          $table->dropColumn('marriage_certificate');
+          $table->dropColumn('passport');
         });
+         
+      
     }
+    
 
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->renameColumn('username', 'name');
+          Schema::table('user_details', function (Blueprint $table) {
+             $table->string('marriage_certificate', 255);
+               $table->string('passport', 255);
         });
     }
 };

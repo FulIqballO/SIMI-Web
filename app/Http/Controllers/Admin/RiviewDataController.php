@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\User;
+use App\Models\ExamScore;
+use App\Models\TravelLog;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -26,9 +28,34 @@ class RiviewDataController extends Controller
     return view('admin.riview_data.index', compact('users'));
     }
 
+   public function konfirmasi(Request $request, $examScoreId)
+{
+    $exam = ExamScore::findOrFail($examScoreId);
+    $status = $request->input('action'); // approved, rejected, pending
+
+    $exam->review_status = $status;
+    $exam->save();
+
+    if ($status === 'approved') {
+        TravelLog::firstOrCreate([
+            'user_id' => $exam->user_id,
+            'exam_score_id' => $exam->id,
+        ], [
+            'travel_type' => 'departure',
+            'date' => now(),
+        ]);
+    }
+
+    return redirect()->back()->with('success', 'Status berhasil diubah menjadi: ' . ucfirst($status));
+}
+
+    
+
     /**
      * Show the form for creating a new resource.
      */
+
+    
     public function create()
     {
         //
@@ -66,22 +93,7 @@ class RiviewDataController extends Controller
         //
     }
 
-    public function approve($id)
-{
-    $exam = \App\Models\ExamScore::findOrFail($id);
-    $exam->review_status = 'approved';
-    $exam->save();
-
     
-    \App\Models\TravelLog::create([
-        'user_id' => $exam->user_id,
-        'exam_score_id' => $exam->id,
-        'travel_type' => 'departure',
-        'date' => now(),
-    ]);
-
-    return redirect()->back()->with('success', 'Data CPMI disetujui untuk keberangkatan.');
-}
 
     /**
      * Remove the specified resource from storage.

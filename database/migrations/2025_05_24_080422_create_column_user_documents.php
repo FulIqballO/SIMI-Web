@@ -11,9 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('users', function (Blueprint $table) {
-                $table->renameColumn('name', 'username');
-               
+        Schema::table('user_documents', function (Blueprint $table): void {
+           $table->string('marriage_certificate', 255)->after('police_clearance');
+           $table->string('passport', 255)->after('marriage_certificate');
         });
     }
 
@@ -22,8 +22,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->renameColumn('username', 'name');
+        Schema::table('user_documents', function (Blueprint $table) {
+             $table->dropColumn(['marriage_certificate', 'passport']);
         });
     }
 };

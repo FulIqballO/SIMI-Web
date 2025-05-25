@@ -57,7 +57,7 @@
                         <td>{{ $p->transfer_time }}</td>
                         <td>
                             @if($p->proof_of_transfer)
-                                <img src="{{ asset('storage/' . $p->proof_of_transfer) }}" alt="Bukti Transfer" width="100">
+                                <img src="{{ asset('payments/' . $p->proof_of_transfer) }}" alt="Bukti Transfer" width="100">
                             @else
                                 <span>Tidak ada gambar</span>
                             @endif

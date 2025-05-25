@@ -34,6 +34,7 @@
                     <tr>
                         <th>No</th>
                         <th>Nama User</th>
+                        <th>Status Pembayaran</th>
                         <th>Materi Training </th>
                         <th>Status</th>
                         <th>Tgl Registrasi</th>
@@ -46,13 +47,14 @@
                     <tr>
                         <td scope="col">{{ $tr->id }}</td>
                         <td scope="col">{{ $tr->user->username }}</td>
+                        <td scope="col">{{ $tr->payment->payment_status }}</td>
                         <td scope="col">{{ $tr->training->training_name }}</td>
                         <td scope="col">{{ $tr->status }}</td>
                         <td scope="col">{{ $tr->registration_date }}</td>
                         <td>
                             <div class="d-flex gap-2">
                                 <a href="{{ route('training_registration.edit', $tr->id) }}" class="btn btn-warning"><i class="bi bi-pencil-square"></i></a>
-                            <form action="{{ route('training_schedule.destroy', $tr->id) }}" method="POST">
+                            <form action="{{ route('training_registration.destroy', $tr->id) }}" method="POST">
                                 <button type="submit" class="btn btn-danger"><i class="bi bi-trash"></i></button>
                             </form>
                             </div>

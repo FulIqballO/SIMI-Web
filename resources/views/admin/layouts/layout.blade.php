@@ -1,3 +1,9 @@
+
+{{-- bismillah. aku hanya berdoa dan menyembah padamu yaallah semoga dengan kerja keras kelompok ku ini bisa tetap Berhasil
+dan tetap selesai sesuai dengan apa yang diharapkan, dengan project desktop kemarin agak keteteran yaallah, tapi aku berharap ini bisa berjalan sesuai dengan rencana
+dan semoga aplikasi ini bisa memuaskan dosen penguji. Aku selalu percaua engkau selalu menyertaiku. Amin --}}
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -126,19 +132,20 @@
 
 			
 
-					</li>
-					<li class="sidebar-item">
-						<a class="sidebar-link" href="pages-blank.html">
-              <i class="align-middle" data-feather="book"></i> <span class="align-middle">Informasi Keberangkatan</span>
-            </a>
+					{{-- </li>
+		<li class="sidebar-item">
+						<a class="sidebar-link {{ request()->routeIs('informasi_keberangkatan.*') ? 'active bg-primary text-white' : '' }}" href="{{ route('informasi_keberangkatan.index') }}">
+              				<i class="align-middle" data-feather="check-square"></i> <span class="align-middle">Keberangkatan</span>
+            			</a>
+			</li> --}}
+			
 
-			</li>
-					<li class="sidebar-item">
+					{{-- <li class="sidebar-item">
 						<a class="sidebar-link" href="pages-blank.html">
               <i class="align-middle" data-feather="book"></i> <span class="align-middle">Informasi Kepulangan</span>
             </a>
 
-					</li>
+					</li> --}}
 					
 
 					
@@ -151,13 +158,13 @@
 					</li>
 
 					<li class="sidebar-item">
-						<a class="sidebar-link {{ request()->routeIs('report_departure.*') ? 'active bg-primary text-white' : '' }}" href="{{ route('report_departure.index') }}">
+						<a class="sidebar-link {{ request()->routeIs('report.*') ? 'active bg-primary text-white' : '' }}" href="{{ route('report.index') }}">
               <i class="align-middle" data-feather="coffee"></i> <span class="align-middle">Laporan Keberangkatan</span>
             </a>
 					</li>
 
 					<li class="sidebar-item">
-						<a class="sidebar-link" href="icons-feather.html">
+						<a class="sidebar-link"  href="icons-feather.html">
               <i class="align-middle" data-feather="coffee"></i> <span class="align-middle">Laporan Kepulangan</span>
             </a>
 					</li>

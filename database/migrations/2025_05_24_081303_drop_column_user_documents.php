@@ -11,9 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('users', function (Blueprint $table) {
-                $table->renameColumn('name', 'username');
-               
+          Schema::table('user_documents', function (Blueprint $table) {
+            $table->dropColumn('beneficiary');
+         
         });
     }
 
@@ -22,8 +22,10 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->renameColumn('username', 'name');
+        
+           Schema::table('user_documents', function (Blueprint $table) {
+                    $table->string('beneficiary', 255);
+         
         });
     }
 };
