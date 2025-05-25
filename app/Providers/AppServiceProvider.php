@@ -20,12 +20,12 @@ class AppServiceProvider extends ServiceProvider
     /**
      * Bootstrap any application services.
      */
-    public function boot(): void
-    {
-        Paginator::useBootstrap();
+    // public function boot(): void
+    // {
+    //     Paginator::useBootstrap();
 
-        Route::bind('payment', function ($value) {
-            return Payment::where('invoice_code', $value)->firstOrFail();
-        });
-    }
+    //     Route::bind('payment', function ($value) {
+    //         return Payment::where('invoice_code', $value)->firstOrFail();
+    //     });
+    // }
 }

@@ -47,7 +47,7 @@
             </div>
 
        <div class="mb-3 col-12 mt-2">
-        <button type="submit" class="btn btn-lg btn-outline-success">Submit </button>
+        <button type="submit" class="btn btn-lg btn-outline-success">Update </button>
         <a href="{{ route('job.index') }}" class="btn btn-lg btn-outline-primary">Kembali</a>
             </div>
 

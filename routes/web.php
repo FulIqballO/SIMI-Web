@@ -64,7 +64,7 @@ Route::post('/review-data/{examScore}/konfirmasi', [RiviewDataController::class,
 Route::resource('informasi_perjalanan', TravelLogController::class);
 
 Route::resource('report', ReportController::class);
-Route::get('report/cetak/{id}', [ReportController::class, 'cetak'])->name('report.cetak');
+Route::get('report/{id}/print', [ReportController::class, 'print'])->name('report.print');
 
 // Route::resource('informasi_keberangkatan', DepartureController::class);
 

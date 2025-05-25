@@ -11,11 +11,15 @@ class Payment extends Model
 {
     use HasFactory;
 
-    protected $primaryKey = 'invoice_code';
-    public $incrementing = false;
-    protected $keyType = 'string';
+    protected $primaryKey = 'id';
+    public $incrementing = true;
 
     protected $table = 'payments';
+
+//     public function getRouteKeyName()
+// {
+//     return 'invoice_code';
+// }
 
 
     protected $fillable = [

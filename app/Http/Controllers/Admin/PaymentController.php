@@ -91,8 +91,9 @@ class PaymentController extends Controller
     {   
         
         $training_registrations = TrainingRegistration::all();
+        $statuses = PaymentStatus::cases();
 
-        return view('admin.payment.edit', compact('payment', 'training_registrations'));
+        return view('admin.payment.edit', compact('payment', 'training_registrations', 'statuses'));
     }
 
     /**
@@ -100,36 +101,37 @@ class PaymentController extends Controller
      */
     public function update(Request $request, Payment $payment)
     {
-                    
-        $validatedData = $request->validate([
-            'training_registration_id' => 'required|exists:training_registrations,id',
-            'invoice_code' => 'required|string|max:255|unique:payments,invoice_code,' . $payment->id,
-            'transfer_date' => 'required|date',
-            'transfer_time' => 'required',
-            'proof_of_transfer' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
-             'payment_status' => [
-             'required',
-              Rule::in(array_column(PaymentStatus::cases(), 'value')),
-            ],
-        ]);
+    
+$validatedData = $request->validate([
+        'training_registration_id' => 'required|exists:training_registrations,id',
+        'invoice_code' => 'required|string|max:255',
+        'transfer_date' => 'required|date',
+        'transfer_time' => 'required',
+        'proof_of_transfer' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+        'payment_status' => [
+            'required',
+            Rule::in(array_column(PaymentStatus::cases(), 'value')),
+        ],
+    ]);
 
-        if ($request->hasFile('proof_of_transfer')) {
-            $file = $request->file('proof_of_transfer');
-            $filename = time() . '_' . $file->getClientOriginalName();
-            $path = $file->storeAs('public/payments', $filename); 
-            $validatedData['proof_of_transfer'] = 'payments/' . $filename;
-        }
+    if ($request->hasFile('proof_of_transfer')) {
+        $file = $request->file('proof_of_transfer');
+        $filename = time() . '_' . $file->getClientOriginalName();
+        $file->storeAs('public/payments', $filename);
+        $validatedData['proof_of_transfer'] = 'payments/' . $filename;
+    }
 
-        $payment->update($validatedData);
+   
+    $payment->update($validatedData);
 
-         if ($validatedData['payment_status'] === 'paid') {
-              $training_registration = $payment->training_registration;
+    if ($validatedData['payment_status'] === 'Paid') {
+        $training_registration = $payment->training_registration;
         if ($training_registration) {
             $training_registration->update(['status' => 'active']);
         }
     }
 
-        return redirect()->route('payment.index')->with('success', 'Data Berhasil Di Update');
+    return redirect()->route('payment.index')->with('success', 'Data Berhasil Di Update');
 
     }
 

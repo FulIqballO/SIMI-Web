@@ -6,10 +6,7 @@
     <div class="card rounded">
         <div class="card-header">
             <h2 class="fw-bold mb-2 mt-2">Konfirmasi Data Pembayaran</h2>
-            
-            <a href="{{ route('payment.create') }}" class="btn btn-success mt-2"> 
-                <i class="fas fa-plus"></i> Create
-             </a>
+          
 
              <div class="row">
                 <div class="col-md-8">
@@ -51,7 +48,13 @@
                     <tr>
                         <td>{{ $p->id }}</td>
                         {{-- <td>{{ $p->training_registrations->user->name }}</td> --}}
-                        <td>{{ $p->training_registrations->status }}</td>
+                        <td>
+                              @if ($p->training_registration)
+                                  {{ $p->training_registration->status }}
+                              @else
+                                  <span class="text-danger">Tidak ada data</span>
+                              @endif
+                          </td>
                         <td>{{ $p->invoice_code }}</td>
                         <td>{{ $p->transfer_date }}</td>
                         <td>{{ $p->transfer_time }}</td>
@@ -67,7 +70,7 @@
                         <td>
                             <div class="d-flex gap-2">
                                
-                            <a href="{{ route('payment.edit', $p->invoice_code) }}" class="btn btn-warning mb-3"><i class="bi bi-pencil-square"></i></a>
+                            <a href="{{ route('payment.edit', $p->id) }}" class="btn btn-warning mb-3"><i class="bi bi-pencil-square"></i></a>
 
                             <button type="button" class="btn btn-danger mb-3" data-bs-toggle="modal" data-bs-target="#deleteModal{{ $p->invoice_code }}">
                                 <i class="bi bi-trash"></i>
@@ -80,7 +83,7 @@
                                       @csrf
                                       @method('DELETE')
                                       <div class="modal-header">
-                                        <h5 class="modal-title" id="deleteModalLabel{{ $j->id }}">Konfirmasi Hapus</h5>
+                                        <h5 class="modal-title" id="deleteModalLabel{{ $p->invoice_code }}">Konfirmasi Hapus</h5>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
                                       </div>
                                       <div class="modal-body">

@@ -46,10 +46,11 @@
                 <h5>Data CPMI</h5>
                 <p><strong>Agensi:</strong> {{ $user->userDetails->agency_name ?? '-' }}</p>
                 <p><strong>Sponsor:</strong> {{ $user->userDetails->sponsor ?? '-' }}</p>
+                <p><strong></strong></p>
             </div>
 
             {{-- CETAK SEMUA --}}
-            <a href="{{ route('report.cetak', $user->id) }}" target="_blank" class="btn btn-primary mt-3">
+            <a href="{{ route('report.print', $user->id) }}" target="_blank" class="btn btn-primary mt-3">
                 Cetak Seluruh Data
             </a>
 

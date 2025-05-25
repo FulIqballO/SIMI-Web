@@ -24,7 +24,7 @@ class TRegistrationController extends Controller
 
         $trainingregistrationQuery = TrainingRegistration::with(['user', 'training'])
         ->whereHas('payment', function ($query) {
-            $query->where('status', 'paid'); 
+            $query->where('payment_status', 'Paid'); 
         });
 
     if ($cari) {
@@ -120,7 +120,7 @@ class TRegistrationController extends Controller
 
         $training_registration->update($validatedData);
 
-        return redirect()->route('admin.training_registration.index')->with('success', 'Registrasi Pelatihan Berhasil Diperbarui');
+        return redirect()->route('training_registration.index')->with('success', 'Registrasi Pelatihan Berhasil Diperbarui');
     }
 
     /**

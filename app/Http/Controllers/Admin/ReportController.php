@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\User;
 use App\Models\TravelLog;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
 use App\Http\Controllers\Controller;
 
 class ReportController extends Controller
@@ -66,6 +67,14 @@ class ReportController extends Controller
                  return view('admin.report_departure.show', compact('user'));
 
     }
+
+    public function print($id)
+{
+    $user = User::with(['userDocuments', 'userDetails', 'personalData'])->findOrFail($id);
+
+    $pdf = Pdf::loadView('admin.report_departure.pdf', compact('user'));
+    return $pdf->download('laporan_cpmi_' . $user->username . '.pdf');
+}
 
     /**
      * Show the form for editing the specified resource.
