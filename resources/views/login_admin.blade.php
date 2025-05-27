@@ -18,9 +18,38 @@
 
 	<link href="{{ asset('admin_asset/css/app.css') }}" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+	<style>
+		
+.animated-bg {
+	background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #fbc2eb, #a18cd1);
+	background-size: 400% 400%;
+	animation: gradientBG 15s ease infinite;
+	min-height: 100vh;
+}
+
+@keyframes gradientBG {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+.card {
+	background-color: rgba(255, 255, 255, 0.85); 
+	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2); /* Lembutkan bayangan */
+	border-radius: 1rem;
+}
+</style>
+	
 </head>
 
-<body>
+<body class="animated-bg">
 	<main class="d-flex w-100">
 		<div class="container d-flex flex-column">
 			<div class="row vh-100">
@@ -36,6 +65,7 @@
 						</div>
 
 						<div class="card">
+							
 							<div class="card-body">
 								<div class="m-sm-3">
 									<form action="{{ route('ceklogin') }}" method="POST">
@@ -44,6 +74,7 @@
 									@if(session('error'))
 										<div class="row">
 											<div class="col-md-8 mx-auto">
+												{{-- <img src="{{ asset('logo_simi/logoSimi.png') }}" alt="Logo SIMI" style="max-height: 80px;"> --}}
 												<div class="alert alert-danger alert-dismissible fade show text-center" role="alert">
 													{{ session('error') }}
 													<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>

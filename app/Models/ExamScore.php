@@ -38,7 +38,7 @@ class ExamScore extends Model
     
     protected $casts = [
     'review_status' => RiviewStatus::class,
-];
+    ];
 
     public function user()
     { 
@@ -51,5 +51,9 @@ class ExamScore extends Model
 
     public function training_registration(){
       return $this->belongsTo(TrainingRegistration::class, 'training_registration_id');
+    }
+
+    public function travelLog(){
+      return $this->hasOne(TravelLog::class);
     }
 }

@@ -29,7 +29,7 @@
         @forelse ($users as $index => $user)
             <tr>
                 <td>{{ $index + 1 }}</td>
-                <td>{{ $user->username }}</td>
+                <td>{{ Str::title($user->username) }}</td>
                 <td>{{ $user->personalData->number_passport ?? '-' }}</td>
                 <td>{{ $user->personalData->birth_place }}</td>
                 <td>
@@ -41,10 +41,11 @@
                 </td>
 
                 <td>
-                    @if ($user->userDocuments && $user->userDocuments->permit_letter)
-                        <a href="{{ asset('user_documents/' . $user->userDocuments->permit_letter) }}" target="_blank">
-                            Lihat Surat Izin
-                        </a>
+                    @php
+                        $docs = $user->userDocuments;
+                    @endphp
+                    @if ($docs && $docs->permit_letter)
+                        <a href="{{ asset('user_documents/' . $docs->permit_letter) }}" target="_blank">Lihat Surat Izin</a>
                     @else
                         <span>-</span>
                     @endif
@@ -59,6 +60,7 @@
                         <span>-</span>
                     @endif
                 </td>
+
                 <td>
                     @if ($user->userDetails && $user->userDetails->agency_name)
                         {{ $user->userDetails->agency_name }}

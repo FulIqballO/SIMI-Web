@@ -1,7 +1,9 @@
 
-{{-- bismillah. aku hanya berdoa dan menyembah padamu yaallah semoga dengan kerja keras kelompok ku ini bisa tetap Berhasil
+{{-- 
+bismillah. aku hanya berdoa dan menyembah padamu yaallah semoga dengan kerja keras kelompok ku ini bisa tetap Berhasil
 dan tetap selesai sesuai dengan apa yang diharapkan, dengan project desktop kemarin agak keteteran yaallah, tapi aku berharap ini bisa berjalan sesuai dengan rencana
-dan semoga aplikasi ini bisa memuaskan dosen penguji. Aku selalu percaua engkau selalu menyertaiku. Amin --}}
+dan semoga aplikasi ini bisa memuaskan dosen penguji. Aku selalu percaua engkau selalu menyertaiku. Amin
+ --}}
 
 
 <!DOCTYPE html>
@@ -25,17 +27,52 @@ dan semoga aplikasi ini bisa memuaskan dosen penguji. Aku selalu percaua engkau 
 	
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
 <!-- Bootstrap 5 CSS CDN -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
+
 	<link href="{{ asset('admin_asset/css/app.css') }}" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+/* nav.sidebar.bg-custom-sidebar {
+  background-color: #ffc0cb !important;
+}
+
+.bg-custom-sidebar .sidebar-content,
+.bg-custom-sidebar .sidebar-nav,
+.bg-custom-sidebar .sidebar-item {
+  background-color: #ffc0cb !important;
+}
+*/
+
+.bg-custom-sidebar .nav-link,
+.bg-custom-sidebar .nav-link i,
+.bg-custom-sidebar .sidebar-header,
+.bg-custom-sidebar .sidebar-brand {
+ 
+}
+
+.bg-pink-active {
+  background-color: #e75480 !important; 
+  color: #fff !important; 
+}
+
+.bg-custom-sidebar .sidebar-link:hover {
+  background-color: #f5a3b4 !important;
+} 
+
+</style>
+
+
+
+
 </head>
 
 <body>
 	<div class="wrapper">
-		<nav id="sidebar" class="sidebar js-sidebar">
+		<nav id="sidebar" class="sidebar js-sidebar bg-custom-sidebar">
 			<div class="sidebar-content js-simplebar">
 				<a class="sidebar-brand" href="index.html">
           <span class="align-middle">SIMI</span>
@@ -53,7 +90,7 @@ dan semoga aplikasi ini bisa memuaskan dosen penguji. Aku selalu percaua engkau 
 					</li>
 
 					<li class="sidebar-item">
-						<a class="sidebar-link {{ request()->routeIs('info_training.*') ? 'active bg-primary text-white' : '' }}" href="{{ route('info_training.index') }}">
+						<a class="sidebar-link {{ request()->routeIs('info_training.*') ? 'active bg-pink-active text-black' : '' }}" href="{{ route('info_training.index') }}">
              <i class="fa-solid fa-sitemap"></i> <span class="align-middle">Informasi Pelatihan</span>
             </a>
 					</li>
@@ -121,7 +158,7 @@ dan semoga aplikasi ini bisa memuaskan dosen penguji. Aku selalu percaua engkau 
 					
 			<li class="sidebar-item">
 						<a class="sidebar-link {{ request()->routeIs('riview_data.*') ? 'active bg-primary text-white' : '' }}" href="{{ route('riview_data.index') }}">
-              				<i class="align-middle" data-feather="check-square"></i> <span class="align-middle">Riview Data CPMI</span>
+              				<i class="align-middle" data-feather="check-square"></i> <span class="align-middle">Review Data CPMI</span>
             			</a>
 			</li>
 
