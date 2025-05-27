@@ -59,22 +59,22 @@ class ReportController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show($id)
+        public function show($id)
+        {
+            $user = User::with(['userDetails', 'userDocuments', 'personalData', 'examScore'])
+                    ->findOrFail($id);
+
+                    return view('admin.report_departure.show', compact('user'));
+
+        }
+
+        public function print($id)
     {
-         $user = User::with(['userDetails', 'userDocuments', 'personalData', 'examScore'])
-                ->findOrFail($id);
+        $user = User::with(['userDocuments', 'userDetails', 'personalData'])->findOrFail($id);
 
-                 return view('admin.report_departure.show', compact('user'));
-
+        $pdf = Pdf::loadView('admin.report_departure.pdf', compact('user'));
+        return $pdf->download('laporan_cpmi_' . $user->username . '.pdf');
     }
-
-    public function print($id)
-{
-    $user = User::with(['userDocuments', 'userDetails', 'personalData'])->findOrFail($id);
-
-    $pdf = Pdf::loadView('admin.report_departure.pdf', compact('user'));
-    return $pdf->download('laporan_cpmi_' . $user->username . '.pdf');
-}
 
     /**
      * Show the form for editing the specified resource.

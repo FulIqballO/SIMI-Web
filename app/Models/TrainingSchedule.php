@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\ExamScore;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -27,5 +28,9 @@ class TrainingSchedule extends Model
 
     public function training(){
         return $this->belongsTo(Training::class, 'training_id');
+    }
+
+    public function exam_score(){
+        return $this->hasOne(ExamScore::class);
     }
 }

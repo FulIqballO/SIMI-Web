@@ -56,8 +56,8 @@
                         <td>{{ $log->personalData->passport_number ?? '-' }}</td>
 
                         <td>
-                            <a href="{{ route('report.show', $log->user->id) }}" class="btn btn-success"><i class="fa-solid fa-circle-info"></i></a>
-                            <a href="{{ route('report.print', $user->id) }}" target="_blank" class="btn btn-info btn-sm">
+                            <a href="{{ route('report_return.show', $log->user->id) }}" class="btn btn-success"><i class="fa-solid fa-circle-info"></i></a>
+                            <a href="{{ route('report_return.print', $user->id) }}" target="_blank" class="btn btn-info btn-sm">
                                 Cetak
                             </a>
                             <button type="submit" class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>

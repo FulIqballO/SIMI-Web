@@ -69,5 +69,8 @@ public function examScore()
     return $this->hasOne(ExamScore::class);
 }
 
+public function training_registration(){
+    return $this->hasMany(TrainingRegistration::class);
+}
 
 }

@@ -102,7 +102,7 @@ class PaymentController extends Controller
     public function update(Request $request, Payment $payment)
     {
     
-$validatedData = $request->validate([
+    $validatedData = $request->validate([
         'training_registration_id' => 'required|exists:training_registrations,id',
         'invoice_code' => 'required|string|max:255',
         'transfer_date' => 'required|date',

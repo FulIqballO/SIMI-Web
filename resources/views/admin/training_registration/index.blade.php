@@ -7,9 +7,7 @@
         <div class="card-header">
             <h2>Form Registrasi Pelatihan</h2>
 
-             <a href="{{ route('training_registration.create') }}" class="btn btn-success mt-2">
-                <i class="fas fa-plus"></i> Tambah 
-            </a>
+           
              <div class="row">
                 <div class="col-md-8">
                     

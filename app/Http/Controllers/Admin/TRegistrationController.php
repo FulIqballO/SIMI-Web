@@ -95,9 +95,10 @@ class TRegistrationController extends Controller
     {
         $user = User::all();
         $training = Training::all();
+        $payment = Payment::all();
         $statuses = StatusRegistration::cases();
 
-        return view('admin.training_registration.edit', compact('training_registration', 'user', 'training', 'statuses'));
+        return view('admin.training_registration.edit', compact('training_registration', 'user', 'training', 'payment','statuses'));
         
     }
 

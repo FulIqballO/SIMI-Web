@@ -24,7 +24,7 @@ $registration = TrainingRegistration::first();
             'transfer_date' => now()->toDateString(),
             'transfer_time' => now()->format('H:i:s'),
             'proof_of_transfer' => '6.png',
-            'payment_status' => 'Unpaid'
+            'payment_status' => ''
         ]);
 
     }

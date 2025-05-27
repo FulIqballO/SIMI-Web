@@ -72,22 +72,22 @@
                                
                             <a href="{{ route('payment.edit', $p->id) }}" class="btn btn-warning mb-3"><i class="bi bi-pencil-square"></i></a>
 
-                            <button type="button" class="btn btn-danger mb-3" data-bs-toggle="modal" data-bs-target="#deleteModal{{ $p->invoice_code }}">
+                            <button type="button" class="btn btn-danger mb-3" data-bs-toggle="modal" data-bs-target="#deleteModal{{ $p->id }}">
                                 <i class="bi bi-trash"></i>
                             </button>
 
-                             <div class="modal fade" id="deleteModal{{ $p->invoice_code }}" tabindex="-1" aria-labelledby="deleteModalLabel{{ $p->invoice_code }}" aria-hidden="true">
+                             <div class="modal fade" id="deleteModal{{ $p->invoice_code }}" tabindex="-1" aria-labelledby="deleteModalLabel{{ $p->id }}" aria-hidden="true">
                                 <div class="modal-dialog">
                                   <div class="modal-content">
-                                    <form action="{{ route('payment.destroy', $p->invoice_code) }}" method="POST">
+                                    <form action="{{ route('payment.destroy', $p->id) }}" method="POST">
                                       @csrf
                                       @method('DELETE')
                                       <div class="modal-header">
-                                        <h5 class="modal-title" id="deleteModalLabel{{ $p->invoice_code }}">Konfirmasi Hapus</h5>
+                                        <h5 class="modal-title" id="deleteModalLabel{{ $p->id }}">Konfirmasi Hapus</h5>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
                                       </div>
                                       <div class="modal-body">
-                                        Apakah Anda yakin ingin menghapus <strong>{{ $p->invoice_code }}</strong>?
+                                        Apakah Yakin Ingin Menghapus Kode Invoice Dari : <strong>{{ $p->invoice_code }}</strong>?
                                       </div>
                                       <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>

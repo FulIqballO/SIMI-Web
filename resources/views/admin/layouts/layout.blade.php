@@ -164,7 +164,7 @@ dan semoga aplikasi ini bisa memuaskan dosen penguji. Aku selalu percaua engkau 
 					</li>
 
 					<li class="sidebar-item">
-						<a class="sidebar-link"  href="icons-feather.html">
+						<a class="sidebar-link {{ request()->routeIs('report_return.*') ? 'active bg-primary text-white' : '' }}"  href="{{ route('report_return.index') }}">
               <i class="align-middle" data-feather="coffee"></i> <span class="align-middle">Laporan Kepulangan</span>
             </a>
 					</li>

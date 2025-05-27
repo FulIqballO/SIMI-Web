@@ -15,6 +15,7 @@ use App\Http\Controllers\Admin\DepartureController;
 use App\Http\Controllers\Admin\ExamScoreController;
 use App\Http\Controllers\Admin\TravelLogController;
 use App\Http\Controllers\Admin\RiviewDataController;
+use App\Http\Controllers\Admin\ReportReturnController;
 use App\Http\Controllers\Admin\TRegistrationController;
 use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Admin\TrainingScheduleController;
@@ -65,6 +66,10 @@ Route::resource('informasi_perjalanan', TravelLogController::class);
 
 Route::resource('report', ReportController::class);
 Route::get('report/{id}/print', [ReportController::class, 'print'])->name('report.print');
+
+
+Route::resource('report_return', ReportReturnController::class);
+Route::get('report_return/{id}/print', [ReportReturnController::class, 'print'])->name('report_return.print');
 
 // Route::resource('informasi_keberangkatan', DepartureController::class);
 

@@ -2,7 +2,7 @@
 
 namespace App\Enums;
 
-enum RemarkStatus: string
+enum RemarkStatus : string
 {
     case Pass = 'Passed';
     case Fail = 'Failed';

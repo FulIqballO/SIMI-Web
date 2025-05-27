@@ -9,17 +9,17 @@ use App\Http\Controllers\Controller;
 
 class DepartureController extends Controller
 {
-    public function index(){
+    // public function index(){
 
-        return view('admin.informasi_keberangkatan.index');
-    }
+    //     return view('admin.informasi_keberangkatan.index');
+    // }
 
-     public function download($id)
-    {
-        $travelLog = TravelLog::findOrFail($id);
+    //  public function download($id)
+    // {
+    //     $travelLog = TravelLog::findOrFail($id);
 
-        $pdf = Pdf::loadView('pdf.invoice', compact('travel_type'));
+    //     $pdf = Pdf::loadView('pdf.invoice', compact('travel_type'));
 
-        return $pdf->download("invoice-{$travelLog->id}.pdf");
-    }
+    //     return $pdf->download("invoice-{$travelLog->id}.pdf");
+    // }
 }
